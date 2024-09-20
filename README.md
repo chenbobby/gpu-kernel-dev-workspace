@@ -37,6 +37,19 @@ nvidia-smi
 sudo fdisk --list
 ```
 
+-[] Setup git workflow.
+
+```
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt install update
+sudo apt install upgrade
+
+git config core.editor vim
+git config commit.gpgsign true
+git config gpg.format ssh
+git config user.signingkey /PATH/TO/SSH/KEY.PUB
+```
+
 -[] Install Python, according to [this guide](https://hackersandslackers.com/multiple-python-versions-ubuntu-20-04/)
 
 ```
