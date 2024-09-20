@@ -47,7 +47,8 @@ sudo apt install upgrade
 git config core.editor vim
 git config commit.gpgsign true
 git config gpg.format ssh
-git config user.signingkey /PATH/TO/SSH/KEY.PUB
+git config user.signingkey /PATH/TO/.SSH/PRIVATEKEY
+git config credential.helper store
 ```
 
 -[] Install Python, according to [this guide](https://hackersandslackers.com/multiple-python-versions-ubuntu-20-04/)
