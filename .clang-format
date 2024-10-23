@@ -1,4 +1,3 @@
----
 AccessModifierOffset: -1
 AlignAfterOpenBracket: AlwaysBreak
 AlignConsecutiveAssignments: false
@@ -68,6 +67,8 @@ PenaltyExcessCharacter: 1000000
 PenaltyReturnTypeOnItsOwnLine: 2000000
 PointerAlignment: Left
 ReflowComments:  true
+ReferenceAlignment: Left
+QualifierAlignment: Right
 SortIncludes:    true
 SpaceAfterCStyleCast: false
 SpaceBeforeAssignmentOperators: true
@@ -79,14 +80,6 @@ SpacesInContainerLiterals: true
 SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
-Standard:        Cpp11
+Standard: c++17
 TabWidth:        8
 UseTab:          Never
----
-Language: ObjC
-ColumnLimit: 120
-AlignAfterOpenBracket: Align
-ObjCBlockIndentWidth: 2
-ObjCSpaceAfterProperty: false
-ObjCSpaceBeforeProtocolList: false
-...

@@ -1,5 +1,9 @@
 {
-    "[cpp]": {
+    "[cpp,cuda-cpp]": {
         "editor.tabSize": 2
-    }
+    },
+    "clangd.path": "/bin/clangd",
+    "clangd.arguments": [
+        "-log=verbose"
+    ]
 }

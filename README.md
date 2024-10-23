@@ -7,48 +7,62 @@
 
 ## System Checklist
 
--[] Print info about your Linux distribution.
+- [ ] Print info about your Linux distribution.
 
 ```
 lsb_release --all
 ```
 
--[] Print your Linux kernel version.
+- [ ] Print your Linux kernel version.
 
 ```
 uname --all
 ```
 
--[] Print CPU architecture.
+- [ ] Print CPU architecture.
 
 ```
 uname --machine
 ```
 
--[] Print GPU driver version and CUDA version.
-
-```
-nvidia-smi
-```
-
--[] Print disk storage devices.
+- [ ] Print disk storage devices.
 
 ```
 sudo fdisk --list
 ```
 
--[] Setup git workflow.
+## Setup CUDA Toolkit
+
+- [ ] Print GPU driver version and CUDA version.
 
 ```
-sudo add-apt-repository ppa:git-core/ppa
-sudo apt install update
-sudo apt install upgrade
+nvidia-smi
+```
 
-git config core.editor vim
-git config commit.gpgsign true
-git config gpg.format ssh
-git config user.signingkey /PATH/TO/.SSH/PRIVATEKEY
-git config credential.helper store
+- [ ] Install CUDA Toolkit from the NVIDIA CUDA APT repository.
+
+```
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
+sudo sh -c 'echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" > /etc/apt/sources.list.d/cuda.list'
+sudo apt update
+sudo apt install cuda
+```
+
+- [ ] Add CUDA Toolkit to your `PATH` and `LD_LIBRARY_PATH`.
+
+```
+# Add this to your .zshrc or .bashrc
+export PATH=/usr/local/cuda-12.6/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-12.6/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+```
+
+(Replace `12.6` with the CUDA Toolkit version that you installed.)
+
+- [ ] Verify your CUDA Toolkit installation.
+
+```
+source ~/.zshrc
+nvcc --version
 ```
 
 -[] Install Python, according to [this guide](https://hackersandslackers.com/multiple-python-versions-ubuntu-20-04/)
@@ -84,7 +98,7 @@ python3
 True
 ```
 
-- [] Setup C++ toolchain.
+- [ ] Setup C++ toolchain.
 
 ```
 sudo apt install g++10
@@ -93,8 +107,8 @@ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 9
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
 
-sudo apt install clangd-12
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 12
+sudo apt install clangd-15
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-15 15
 
 sudo apt install ccache
 
